@@ -1,0 +1,45 @@
+<div class="mb-3">
+    <div class="container border-primary text-center">
+        <div class="card text-primary">
+            <div class="card-header text-center">
+                <h1 class="card-title">
+                    {{titulo}}
+                </h1>
+            </div>
+            <div class="card-body border-primary">
+                <form >
+                    <div class="mb-3">
+                        <label for="idCategoria" class="form-label"> Id categoria</label>
+                        <input type="text" name="idCategoria" id="idCategoria" class="form-control" [(ngModel)]="categoria.idCategoria" readonly >
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreCategoria" class="form-label"> nombre categoria</label>
+                        <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control"  [(ngModel)]="categoria.nombreCategoria" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcionCategoria" class="form-label"> descripcion categoria</label>
+                        <input type="text" name="descripcionCategoria" id="descripcionCategoria" class="form-control"  [(ngModel)]="categoria.descripcionCategoria" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="FechaCategoria" class="form-label">Fecha categoría</label>
+                        <input type="date" name="FechaCategoria" id="FechaCategoria" class="form-control" [(ngModel)]="categoria.fechaCreacion" value="{{ categoria.fechaCreacion}}">
+                    </div>
+                    <div class="mb-3">
+                       <button type="button" class="btn btn-outline-success form-control" (click) = "actualizarCategoria()" *ngIf="categoria.idCategoria;else elseBlock">
+                        Actualizar
+                    </button>
+                    </div>
+                    <div class="mb-3">
+                       
+                            <ng-template #elseBlock>
+                                <button type="button" class="btn btn-outline-info form-control" (click) = "registrarCategoria()">
+                                    Registrar
+                                </button>
+                            </ng-template>
+                            
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

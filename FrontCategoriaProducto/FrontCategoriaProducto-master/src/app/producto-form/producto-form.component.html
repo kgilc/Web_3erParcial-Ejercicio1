@@ -1,0 +1,53 @@
+<div class="mb-3">
+    <div class="container border-primary text-center">
+        <div class="card text-primary">
+            <div class="card-header text-center">
+                <h1 class="card-title">
+                    {{titulo}}
+                </h1>
+            </div>
+            <div class="card-body border-primary">
+                <form>
+                    <div class="mb-3">
+                        <label for="idProducto" class="form-label">Id Producto</label>
+                        <input type="text" name="idProducto" id="idProducto" class="form-control" [(ngModel)]="producto.idProducto" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre Producto</label>
+                        <input type="text" name="nombreProducto" id="nombreProducto" class="form-control" [(ngModel)]="producto.nombreProducto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcionProducto" class="form-label">Descripción Producto</label>
+                        <input type="text" name="descripcionProducto" id="descripcionProducto" class="form-control" [(ngModel)]="producto.descripcionProducto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precioProducto" class="form-label">Precio Producto</label>
+                        <input type="number" name="precioProducto" id="precioProducto" class="form-control" [(ngModel)]="producto.precioProducto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="existenciaProducto" class="form-label">Existencia Producto</label>
+                        <input type="number" name="existenciaProducto" id="existenciaProducto" class="form-control" [(ngModel)]="producto.existenciaProducto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <select name="categoria" id="categoria" class="form-control" [(ngModel)]="producto.categoria.idCategoria">
+                            <option *ngFor="let c of listaDeCategorias" [value]="c.idCategoria">{{ c.nombreCategoria }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-outline-success form-control" (click)="actualizarProducto()" *ngIf="producto.idProducto; else elseBlock">
+                            Actualizar
+                        </button>
+                    </div>
+                    <div class="mb-3">
+                        <ng-template #elseBlock>
+                            <button type="button" class="btn btn-outline-info form-control" (click)="registrarProducto()">
+                                Registrar
+                            </button>
+                        </ng-template>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
